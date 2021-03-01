@@ -81,7 +81,7 @@ public class Regex {
 	{
 		System.out.println("Enter password(Minimum 8 characters)");
 		password=sc.nextLine();
-		String regex ="^(?=.*[A-Z]).{8,20}$";
+		String regex ="^(?=.*[A-Z])(?=.*[0-9]).{8,20}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(password);
 	    System.out.println(password +" : "+ matcher.matches());
