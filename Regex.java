@@ -8,6 +8,7 @@ public class Regex {
 	boolean validName;
 	String firstName;
 	String lastName;
+	String phonenumber;
 	
 	Scanner sc = new Scanner(System.in);
 
@@ -54,7 +55,7 @@ public class Regex {
 			emails.add(sc.next());
 		}
 		
-		String regex = "^[A-Za-z0-9_-]+(?:\\.[A-Za-z0-9_-])*@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*$";
+		String regex = "^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-])*@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*$";
 		 
 		Pattern pattern = Pattern.compile(regex);
 		 
@@ -64,6 +65,16 @@ public class Regex {
 		    System.out.println(email +" : "+ matcher.matches());
 		}
 	}
+	
+	public void validatePhonenumber()
+	{
+		System.out.println("Enter phone number to validate");
+		phonenumber=sc.nextLine();
+		String regex = "^[0-9]{2} [0-9]{10}$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(phonenumber);
+	    System.out.println(phonenumber +" : "+ matcher.matches());
+	}
 	public static void main(String[] args) 
 	{
 		System.out.println("Welcome to a User registration problem using Reges");
@@ -72,7 +83,8 @@ public class Regex {
 
 		//user.validateFirstName();
 		//user.validateLastName();
-		user.validateEmail();
+		//user.validateEmail();
+		user.validatePhonenumber();
 	}
 
 }
