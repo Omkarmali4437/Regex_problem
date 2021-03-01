@@ -9,6 +9,7 @@ public class Regex {
 	String firstName;
 	String lastName;
 	String phonenumber;
+	String password;
 	
 	Scanner sc = new Scanner(System.in);
 
@@ -75,15 +76,26 @@ public class Regex {
 		Matcher matcher = pattern.matcher(phonenumber);
 	    System.out.println(phonenumber +" : "+ matcher.matches());
 	}
+	
+	public void validatePassword()
+	{
+		System.out.println("Enter password(Minimum 8 characters)");
+		password=sc.nextLine();
+		String regex =" .{8,} ";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(password);
+	    System.out.println(password +" : "+ matcher.matches());
+	}
 	public static void main(String[] args) 
 	{
 		System.out.println("Welcome to a User registration problem using Reges");
 		
 		Regex user = new Regex();
 
-		//user.validateFirstName();
-		//user.validateLastName();
-		//user.validateEmail();
+		user.validateFirstName();
+		user.validateLastName();
+		user.validateEmail();
+		user.validatePhonenumber();
 		user.validatePhonenumber();
 	}
 
