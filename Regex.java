@@ -81,7 +81,7 @@ public class Regex {
 	{
 		System.out.println("Enter password(Minimum 8 characters)");
 		password=sc.nextLine();
-		String regex =" .{8,} ";
+		String regex ="^(?=.*[A-Z]).{8,20}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(password);
 	    System.out.println(password +" : "+ matcher.matches());
@@ -92,11 +92,11 @@ public class Regex {
 		
 		Regex user = new Regex();
 
-		user.validateFirstName();
-		user.validateLastName();
-		user.validateEmail();
-		user.validatePhonenumber();
-		user.validatePhonenumber();
+		//user.validateFirstName();
+		//user.validateLastName();
+		//user.validateEmail();
+		//user.validatePhonenumber();
+		user.validatePassword();
 	}
 
 }
