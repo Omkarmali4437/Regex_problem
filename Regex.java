@@ -1,5 +1,7 @@
 package myPackage;
 import java.util.regex.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Regex {
@@ -42,14 +44,35 @@ public class Regex {
 		}
 
 	}
+	
+	public void validateEmail()
+	{
+		ArrayList<String> emails = new ArrayList<String>();
+		System.out.println("Enter email addressess to validate");
+		for(int i=0;i<2;i++)
+		{
+			emails.add(sc.next());
+		}
+		
+		String regex = "^[A-Za-z0-9_-]+(?:\\.[A-Za-z0-9_-])*@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*$";
+		 
+		Pattern pattern = Pattern.compile(regex);
+		 
+		for(String email : emails)
+		{
+		    Matcher matcher = pattern.matcher(email);
+		    System.out.println(email +" : "+ matcher.matches());
+		}
+	}
 	public static void main(String[] args) 
 	{
 		System.out.println("Welcome to a User registration problem using Reges");
 		
 		Regex user = new Regex();
 
-		user.validateFirstName();
-		user.validateLastName();
+		//user.validateFirstName();
+		//user.validateLastName();
+		user.validateEmail();
 	}
 
 }
