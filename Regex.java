@@ -79,7 +79,7 @@ public class Regex {
 	
 	public void validatePassword()
 	{
-		System.out.println("Enter password(Minimum 8 characters)");
+		System.out.println("Enter password(Minimum 8 characters,atleats one number and only one special character)");
 		password=sc.nextLine();
 		String regex ="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}";
 		Pattern pattern = Pattern.compile(regex);
